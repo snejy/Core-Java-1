@@ -1,4 +1,5 @@
 
+
 public class Logger {
 	private int level;
 	
@@ -26,7 +27,7 @@ public class Logger {
 				return;
 			}
 			else{
-				System.out.println(message);
+				System.out.println(level + " => " + message);
 			}
 		}
 		catch (LevelOutOfRangeException exception){
@@ -37,7 +38,7 @@ public class Logger {
 
 	public void log(String message){
 		if(this.getLevel() >= 3){
-		System.out.println(message);
+		System.out.println(this.getLevel() + " => " + message);
 		}
 	}
 	
@@ -50,4 +51,5 @@ public class Logger {
 		logger.setLevel(2);
 		logger.log("My message");
 	}
-}
+} 
+ 
