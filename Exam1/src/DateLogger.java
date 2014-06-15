@@ -16,7 +16,6 @@ public class DateLogger extends Logger{
 		super();
 	}
 
-	@Override
 	public void log(String message){
 		if(super.getLevel() >= 3){
 			time = new Date();
@@ -24,7 +23,6 @@ public class DateLogger extends Logger{
 		}
 	}
 
-	@Override
 	public void log(int level, String message){
 		if(level <= 0){
 			throw new LevelOutOfRangeException();
@@ -42,4 +40,5 @@ public class DateLogger extends Logger{
 			exception.printStackTrace();
 		}
 	}
+
 }
