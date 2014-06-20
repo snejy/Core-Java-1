@@ -2,23 +2,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-	
+
 public class Utils {
 
-	public List<Integer> sort( List<Integer> array){
-		List<Integer> sortedArray = new ArrayList<Integer>(array);
-		Collections.sort(sortedArray);
-		return sortedArray;
+	public static List<Integer> sort( List<Integer> sequence){
+		List<Integer> sortedSequence = new ArrayList<Integer>(sequence);
+		Collections.sort(sortedSequence);
+		return sortedSequence;
 	}
-	
-	public List<Integer> reverse( List<Integer> array){
-		List<Integer> reversedArray = new ArrayList<Integer>(array);
-		Collections.reverse(reversedArray);
-		return reversedArray;
-		
+
+	public static List<Integer> reverse( List<Integer> sequence){
+		List<Integer> reversedSequence = new ArrayList<Integer>(sequence);
+		Collections.reverse(reversedSequence);
+		return reversedSequence;
+
 	}
-	
-	public boolean isMonotonous( List<Integer> array){
-		return array.equals(sort(array)) || array.equals(reverse(sort(array)));
+
+	public static boolean isMonotonous( List<Integer> sequence){
+		return sequence.equals(sort(sequence)) || sequence.equals(reverse(sort(sequence)));
 	}
 }

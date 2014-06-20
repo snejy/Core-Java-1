@@ -1,46 +1,41 @@
 
-
 public class Logger {
 	private int level;
-	
+	private final int defaultLevel = 3;
+
 	public Logger() {
-		this.level = 3;
+		this.level = defaultLevel;
 	}
 	public Logger(int level){
 		this.level = level;
 	}
-	
+
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
+
 	public int getLevel() {
 		return level;
 	}
-	
-	public void log( int level, String message) throws LevelOutOfRangeException{
+
+	public int getDefaultLevel() {
+		return defaultLevel;
+	}
+
+	public void log( int level, String message) {
 		if(level <= 0){
 			throw new LevelOutOfRangeException();
 		}
-		try{
-			if(level > this.getLevel()){
-				return;
-			}
-			else{
+		else{
+			if(level <= this.getLevel()){
 				System.out.println(level + " => " + message);
 			}
-		}
-		catch (LevelOutOfRangeException exception){
-			exception.printStackTrace();
 		}
 	}
 
 
 	public void log(String message){
-		if(this.getLevel() >= 3){
-		System.out.println(this.getLevel() + " => " + message);
-		}
+		this.log(defaultLevel, message);
 	}
-	
+
 } 
- 
