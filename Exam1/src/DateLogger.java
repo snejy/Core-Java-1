@@ -5,8 +5,7 @@ import java.util.Date;
 
 
 public class DateLogger extends Logger{
-	private Date time;
-	private DateFormat dateFormat = new SimpleDateFormat("|hh:mm:ss dd.MM.YY| ");
+	private static final DateFormat dateFormat = new SimpleDateFormat("|hh:mm:ss dd.MM.YY| ");
 
 	public DateLogger(int level) {
 		super(level);
@@ -17,15 +16,12 @@ public class DateLogger extends Logger{
 	}
 
 	public void log(int level, String message){
-		if(level <= super.getLevel()){
-			time = new Date();
-			System.out.println(dateFormat.format(time));
-			super.log(level, message);
-		}
+		Date time = new Date();
+		super.log(level, dateFormat.format(time) + message);	
 	}
 
 	public void log(String message){
-		this.log(super.getDefaultLevel(), message);
+		this.log(super.DEFAULT_LEVEL, message);
 	}
 
 }

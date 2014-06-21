@@ -1,13 +1,15 @@
 
 public class Logger {
 	private int level;
-	private final int defaultLevel = 3;
+	protected static final int DEFAULT_LEVEL = 3;
 
-	public Logger() {
-		this.level = defaultLevel;
-	}
+
 	public Logger(int level){
 		this.level = level;
+	}
+
+	public Logger() {
+		this(DEFAULT_LEVEL);
 	}
 
 	public void setLevel(int level) {
@@ -18,9 +20,6 @@ public class Logger {
 		return level;
 	}
 
-	public int getDefaultLevel() {
-		return defaultLevel;
-	}
 
 	public void log( int level, String message) {
 		if(level <= 0){
@@ -35,7 +34,7 @@ public class Logger {
 
 
 	public void log(String message){
-		this.log(defaultLevel, message);
+		this.log(DEFAULT_LEVEL, message);
 	}
 
 } 
